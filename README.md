@@ -6,6 +6,6 @@
 學號末兩碼 | xx
 教師 | [陳鍾誠](https://gitlab.com/ccckmit/course/wikis/home)
 學校科系 | [金門大學資訊工程系](https://www.nqu.edu.tw/educsie/index.php)
-教材書籍 | [計算機結構  -- 採用 Nand2tetris 課程 (Part 1)](https://gitlab.com/ccckmit/course/wikis/陳鍾誠/課程/計算機結構)
+課程教材 | [Nand2tetris = 計算機結構 + 系統程式](https://gitlab.com/ccckmit/course/wikis/%E9%99%B3%E9%8D%BE%E8%AA%A0/%E8%AA%B2%E7%A8%8B/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%90%E6%A7%8B)
 程式範例 | https://github.com/ccccourse/co/
 

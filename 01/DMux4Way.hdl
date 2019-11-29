@@ -23,4 +23,5 @@ CHIP DMux4Way {
     DMux(a=in, b=notsel1, c=sel[1]);
     DMux(a=in, b=sel[0], c=notsel2);
     DMux(a=in, b=sel[0], c=sel[1]);
+
 }

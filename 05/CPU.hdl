@@ -40,4 +40,6 @@ CHIP CPU {
 
     PARTS:
     // Put your code here:
+        Or16(a=false, b= instruction, out[15]= isC, out[12]= a);
+        
 }

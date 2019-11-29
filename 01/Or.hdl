@@ -19,4 +19,5 @@ CHIP Or {
     Not(in=b, out=outb);
     And(a=outa, b=outb, out=outab);
     Not(in=outab, out=out);
+
 }

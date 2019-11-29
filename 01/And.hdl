@@ -15,12 +15,8 @@ CHIP And {
 
     PARTS:
     // Put your code here:
-<<<<<<< HEAD
-     Nand(a=a, b=b, out=outa);
-    Not(in=outa, out=out);
-=======
+
+
     Nand(a=a, b=b, out=outa);
     Not(in=outa, out=out);
-    
->>>>>>> ALU
 }

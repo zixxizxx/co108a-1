@@ -40,6 +40,14 @@ CHIP CPU {
 
     PARTS:
     // Put your code here:
-        Or16(a=false, b= instruction, out[15]= isC, out[12]= a);
+    Not(in= instruction[15], out=ni);
+    Mux16(a=outM, b=instruction, sel=ni, out=om);
+    Or(a=om, b=instruction[5], out=intoA);
+    ARegister(in=om, load=intoA, address=address, out=outa);
+    
+    Mux16(a=outa, b=inM, sel=instruction[15], out=omm);
+    DRegister(in=outM, load=intoD, address=address, out=outd=);
+
+
         
 }

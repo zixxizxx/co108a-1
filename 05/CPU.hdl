@@ -40,14 +40,29 @@ CHIP CPU {
 
     PARTS:
     // Put your code here:
-    Not(in= instruction[15], out=ni);
-    Mux16(a=outM, b=instruction, sel=ni, out=om);
-    Or(a=om, b=instruction[5], out=intoA);
-    ARegister(in=om, load=intoA, address=address, out=outa);
+    Or16(a=false, b=instruction, out[15]=isC, out[12]=a, out[11]=c1, out[10]=c2, out[9]=c3, out[8]=c4, out[7]=c5, out[6]=c6, out[5]=d1, out[4]=d2, out[3]=d3, out[2]=j1, out[1]=j2, out[0]=j3);
     
-    Mux16(a=outa, b=inM, sel=instruction[15], out=omm);
-    DRegister(in=outM, load=intoD, address=address, out=outd=);
+    Not(in=isC, out=isA);
+    And(a=isC, b=d1, out=candd1);
+    Or(a=isA, b=candd1, out=aload);
+    Mux16(a=instruction, b=aluout, sel=isC, out=insalu);
+    ARegister(in=insalu, load=aload, out=aout, out[0..14]=addressM);
 
+    And(a=isC, b=d2, out=candd2);
+    DRegister(in=aluout, load=candd2, out=dout);
 
-        
+    Mux16(a=aout, b=inM, sel=a, out=am);
+    ALU(x=dout, y=am, zx=c1, nx=c2, zy=c3, ny=c4, f=c5, no=c6, zr=aluzr, ng=alung, out=outM, out=aluout );
+
+    Or(a=aluzr, b=alung, out=zrorng);
+    Not(in=zrorng, out=po);
+    And(a=alung, b=j1, out=out1);
+    And(a=aluzr, b=j2, out=out2);
+    And(a=po, b=j3, out=out3);
+    Or(a=out1, b=out2, out=out12);
+    Or(a=out12, b=out3, out=out123);
+    And(a=isC, b=out123, out=pcload);
+    PC(in=aout, load=pcload, inc=true, reset=reset, out[0..14]=pc);
+
+    And(a=d3, b=isC, out=writeM);    
 }
